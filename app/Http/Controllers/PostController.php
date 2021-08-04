@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Category;
 use App\Models\Post;
 use Illuminate\Http\Request;
 
@@ -14,7 +15,10 @@ class PostController extends Controller
      */
     public function index()
     {
-        //
+        return view('posts', [
+            'posts' => $this->getPosts(),
+            'categories' => Category::all()
+        ]);
     }
 
     /**
@@ -57,7 +61,9 @@ class PostController extends Controller
      */
     public function edit(Post $post)
     {
-        //
+        return view('post', [
+            'post' => $post
+        ]);
     }
 
     /**
@@ -81,5 +87,10 @@ class PostController extends Controller
     public function destroy(Post $post)
     {
         //
+    }
+
+    protected function getPosts()
+    {
+        return Post::latest()->filter(request(['search']))->get();
     }
 }
