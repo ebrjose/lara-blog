@@ -15,15 +15,15 @@ class PostController extends Controller
      */
     public function index()
     {
-        return view('posts', [
-            'posts' => $this->getPosts(),
-            'categories' => Category::all(),
-            'currentCategory' => Category::firstWhere('slug', request('category'))
+        return view('posts.index', [
+            'posts' => Post::latest()->filter(request(['search', 'category']))->get()
         ]);
     }
 
-    protected function getPosts()
+    public function show(Post $post)
     {
-        return Post::latest()->filter(request(['search', 'category']))->get();
+        return view('posts.show', [
+            'post' => $post
+        ]);
     }
 }
