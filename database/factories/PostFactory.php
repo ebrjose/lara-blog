@@ -29,8 +29,8 @@ class PostFactory extends Factory
         return [
             'slug' => $this->faker->slug(),
             'title' => $this->faker->realTextBetween(20, 50),
-            'description' => $this->faker->realTextBetween(50, 100),
-            'body' => $this->faker->realText(),
+            'description' => '<p>' . implode('</p><p>', $this->faker->paragraphs(2)) . '</p>',
+            'body' => '<p>' . implode('</p><p>', $this->faker->paragraphs(6)) . '</p>',
             'category_id' => $this->faker->randomElement($category_ids),
             'user_id' => $this->faker->randomElement($user_ids)
         ];

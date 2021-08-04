@@ -27,13 +27,9 @@
                 </div>
             </header>
 
-            <div class="text-sm mt-4">
+            <div class="text-sm mt-4 space-y-4">
                 <p>
-                    {{ $post->description }}
-                </p>
-
-                <p class="mt-4">
-                    {{ $post->body }}
+                    {!! $post->description !!}
                 </p>
             </div>
 
