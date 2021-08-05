@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\RegisterController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -18,10 +19,5 @@ Route::get('/', [PostController::class, 'index'])->name('home');
 
 Route::get('/posts/{post:slug}', [PostController::class, 'show']);
 
-Route::get('/authors/{author:username}', function (App\Models\User $author) {
-    return view('posts.index', [
-        'posts' => $author->posts,
-        'categories' => App\Models\Category::all()
-        // 'posts' => $author->posts->load(['category', 'author'])
-    ]);
-});
+Route::get('register', [RegisterController::class, 'create']);
+Route::post('register', [RegisterController::class, 'store']);

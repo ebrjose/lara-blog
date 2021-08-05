@@ -13,7 +13,12 @@
 </head>
 <body style="font-family: Open Sans, sans-serif">
     <section class="px-6 py-8">
+        @include('components._navbar')
+
         {{ $slot }}
+
+        @include('components._footer')
     </section>
+
 </body>
 </html>
