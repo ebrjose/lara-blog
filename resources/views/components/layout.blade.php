@@ -20,5 +20,7 @@
         @include('components._footer')
     </section>
 
+    <x-flash />
+
 </body>
 </html>
