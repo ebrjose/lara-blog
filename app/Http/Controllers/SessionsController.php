@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\ValidationException;
 
 class SessionsController extends Controller
@@ -14,7 +15,6 @@ class SessionsController extends Controller
 
     public function store()
     {
-        // dd(request()->all());
         $credentials = request()->validate([
             'email' => 'required|email',
             'password' => 'required'
