@@ -47,9 +47,9 @@ class User extends Authenticatable
         return ucwords($username);
     }
 
-    public function setPasswordAttribute($password)
+    public function setUsernameAttribute($username)
     {
-        $this->attributes['password'] = bcrypt($password);
+        $this->attributes['username'] = strtolower($username);
     }
 
     public function getRouteKeyName()
