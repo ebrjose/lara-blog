@@ -15,6 +15,7 @@ class Post extends Model
         'description',
         'body',
         'category_id',
+        'user_id'
     ];
 
     protected $with = ['author', 'category'];
