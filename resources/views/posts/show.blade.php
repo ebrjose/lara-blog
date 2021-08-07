@@ -35,12 +35,7 @@
                         Back to Posts
                     </a>
 
-                    <div class="space-x-2">
-                        <a href="/categories/{{ $post->category->slug }}"
-                            class="px-3 py-1 border border-blue-300 rounded-full text-blue-300 text-xs uppercase font-semibold"
-                            style="font-size: 10px">{{ $post->category->name }}</a>
-
-                    </div>
+                    <x-category-button :category="$post->category" />
                 </div>
 
                 <h1 class="font-bold text-3xl lg:text-4xl mb-10">

@@ -2,8 +2,9 @@
     'name',
     'label' => $name,
     'options',
-    'value' => 'id',
-    'text' => 'name',
+    'optValue' => 'id',
+    'optText' => 'name',
+    'value'
 ])
 
 <x-form.field>
@@ -20,10 +21,10 @@
 
         @foreach ($options as $option )
             <option
-                value="{{ $option->$value }}"
-                {{ old($name) == $option->$value ? 'selected' : '' }}
+                value="{{ $option->$optValue }}"
+                {{ old($name, $value) == $option->$optValue ? 'selected' : '' }}
             >
-                {{ ucwords($option->$text) }}
+                {{ ucwords($option->$optText) }}
             </option>
         @endforeach
 

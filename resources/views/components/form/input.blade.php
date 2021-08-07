@@ -12,8 +12,7 @@
         type="{{ $type }}"
         name="{{ $name }}"
         id="{{ $name }}"
-        value="{{ old($name) }}"
-        {{ $attributes }}
+        {{ $attributes(['value' => old($name) ]) }}
     />
 
     <x-form.error name="{{ $name }}" />
